@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Image based tracking AR.js demo</title>
+    <!-- import aframe and then ar.js with image tracking / location based features -->
+    <script src="https://aframe.io/releases/1.4.0/aframe.min.js"></script>
+    <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar-nft.js"></script>
+  </head>
+
+  <body style="margin: 0px; overflow: hidden">
+    <!-- minimal loader shown until image descriptors are loaded. Loading may take a while according to the device computational power -->
+    <div class="arjs-loader">
+      <div>Loading, please wait...</div>
+    </div>
+
+    <!-- a-frame scene -->
+    <a-scene>
+      <a-assets>
+        <a-asset-item id="tiger" src="./assets/tiger/scene.gltf"></a-asset-item>
+      </a-assets>
+
+      <a-camera position="0 1.2 0"></a-camera>
+
+      <a-entity id="dino" position="-1 0 -3" scale="0.05 0.05 0.05"></a-entity>
+        <a-entity
+          position="0 2.15 0"
+          rotation="0 55 0"
+          gltf-model="#tiger"
+          animation-mixer
+          shadow="cast: true; receive: false"
+        ></a-entity>
+      </a-entity>
+
+    </a-scene>
+  </body>
+</html>
